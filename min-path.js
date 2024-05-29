@@ -1,4 +1,5 @@
 // map (traverse vertically)
+// even = come from up, odd = come from up left/right
 const V = 4;
 const graph = [
   [8, 3, 4, 4],

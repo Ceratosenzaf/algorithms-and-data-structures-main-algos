@@ -1,4 +1,5 @@
 // map (traverse horizontally)
+// 0 = come from left, n = come from left up/bottom
 const V = 5;
 const graph = [
   [7, 0, 10, 0, 0],
