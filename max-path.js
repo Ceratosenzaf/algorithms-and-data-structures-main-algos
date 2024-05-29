@@ -1,4 +1,4 @@
-// map
+// map (traverse horizontally)
 const V = 5;
 const graph = [
   [7, 0, 10, 0, 0],
@@ -26,7 +26,7 @@ const maxPath = () => {
   }
 };
 
-maxPath();
+minPath();
 
 // print cost
 let w = 0;
