@@ -34,22 +34,21 @@ const cost = new Array(V).fill(Infinity);
 
 // T = O(E*logV)
 const dijkstra = () => {
-  const visited = new Set();
   const queue = new PriorityQueue((a, b) => a.w < b.w);
 
   cost[0] = 0;
-  queue.add({ v: 0, w: 0 });
+  queue.push({ v: 0, w: 0 });
 
   while (!queue.isEmpty()) {
     // find min cost vertex
-    const minCostVertex = queue.remove();
-    visited.add(minCostVertex.v);
+    const minCostVertex = queue.pop();
 
     // update costs
     graph[minCostVertex.v].forEach((e) => {
-      if (!visited.has(e.v) && cost[minCostVertex.v] + e.w < cost[e.v]) {
-        cost[e.v] = cost[minCostVertex.v] + e.w;
-        queue.add({ v: e.v, w: cost[e.v] });
+      const newCost = cost[minCostVertex.v] + e.w;
+      if (newCost < cost[e.v]) {
+        cost[e.v] = newCost;
+        queue.push({ v: e.v, w: newCost });
       }
     });
   }

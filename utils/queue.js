@@ -53,7 +53,7 @@ module.exports = class PriorityQueue {
     this.heap[indexTwo] = temp;
   }
 
-  peek() {
+  top() {
     if (this.isEmpty()) return null;
     return this.heap[0];
   }
@@ -61,7 +61,7 @@ module.exports = class PriorityQueue {
   // Removing an element will remove the
   // top element with highest priority then
   // heapifyDown will be called
-  remove() {
+  pop() {
     if (this.heap.length === 0) {
       return null;
     }
@@ -72,7 +72,7 @@ module.exports = class PriorityQueue {
     return item;
   }
 
-  add(item) {
+  push(item) {
     this.heap.push(item);
     this.heapifyUp();
   }

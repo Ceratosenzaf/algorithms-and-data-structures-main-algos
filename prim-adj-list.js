@@ -40,11 +40,11 @@ const prim = () => {
 
   mst.add(0);
   cost[0] = 0
-  queue.add({ v: 0, w: 0 });
+  queue.push({ v: 0, w: 0 });
 
   while (!queue.isEmpty()) {
     // find min cost vertex
-    const minCostVertex = queue.remove();
+    const minCostVertex = queue.pop();
     mst.add(minCostVertex.v);
 
     // update costs
@@ -52,7 +52,7 @@ const prim = () => {
       if(!mst.has(e.v) && e.w < cost[e.v]) {
         prev[e.v] = minCostVertex.v
         cost[e.v] = e.w
-        queue.add(e)
+        queue.push(e)
       }
     })
   }
